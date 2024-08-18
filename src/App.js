@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Heading from './Heading';
+import Section from './Section';
+import { levelContext, myContext } from './LevelContext';
+
+const myObject = {
+  name: 'sam',
+  id: '101',
+  role: 'developer'
+};
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <myContext.Provider>
+      <div className="App">
+        <Section level={1}>
+          <Heading>Heading1</Heading>
+          <Heading>Heading1</Heading>
+          <Section level={2}>
+            <Heading>Heading2</Heading>
+            <Heading>Heading2</Heading>
+            <Section>
+              <Heading>Heading3</Heading>
+              <Heading>Heading3</Heading>
+              <Section>
+                <Heading>Heading4</Heading>
+                <Heading>Heading4</Heading>
+              </Section>
+            </Section>
+          </Section>
+        </Section>
+      </div>
+    </myContext.Provider>
   );
 }
 
